@@ -2,13 +2,13 @@ Summary:	Callback package for Linux
 Summary(pl):	Pakiet Callback dla Linuxa
 Name:		callback
 Version:	4.24
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Admin
 Group(de):	Netzwerkwesen/Administration
 Group(pl):	Sieciowe/Administracyjne
-Source0:	ftp://ftp.icce.rug.nl/pub/unix/%{name}-%{version}.tar.gz
-Source1:	ftp://ftp.icce.rug.nl/pub/unix/%{name}.FAQ
+Source0:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}-%{version}.tar.gz
+Source1:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}.FAQ
 Patch0:		%{name}-Makefiles.patch
 URL:		http://www.icce.rug.nl/docs/programs/callback/callback.html
 Requires:	mgetty
