@@ -35,7 +35,7 @@ pseudo-getty, oraz cb, program steruj±cy.
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,4}}
-	
+
 install cb/cb login/cblogin mgetty/cbmgetty $RPM_BUILD_ROOT%{_bindir}
 install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install man/*.4 $RPM_BUILD_ROOT%{_mandir}/man4
