@@ -3,32 +3,30 @@ Summary(pl):	Pakiet Callback dla Linuxa
 Name:		callback
 Version:	4.24
 Release:	1
+License:	GPL
 Group:		Networking/Admin
 Group(pl):	Sieciowe/Administracyjne
-Copyright:	GPL
 Source0:	ftp://ftp.icce.rug.nl/pub/unix/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.icce.rug.nl/pub/unix/%{name}.FAQ
-Patch:		%{name}-Makefiles.patch
+Patch0:		%{name}-Makefiles.patch
 URL:		http://www.icce.rug.nl/docs/programs/callback/callback.html
 Requires:	mgetty
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-This package allows callback for Linux systems which are
-equipped with a modem.
-The package contains three programs:
-cblogin, a login-program for dial-in connections,
-cbmgetty, a pseudo-getty and cb, a callback control unit.
+This package allows callback for Linux systems which are equipped with a
+modem. The package contains three programs: cblogin, a login-program for
+dial-in connections, cbmgetty, a pseudo-getty and cb, a callback control
+unit.
+
 %description -l pl
-Ten pakiet udostêpnia us³ugê callback na systemach z Linuxem
-wyposa¿onych w modem.
-Pakiet zawiera trzy programy:
-cblogin, program zastêpuj±cy login przy wdzwanianych po³±czeniach,
-cbmgetty, pseudo-getty, oraz cb, program steruj±cy.
+Ten pakiet udostêpnia us³ugê callback na systemach z Linuxem wyposa¿onych w
+modem. Pakiet zawiera trzy programy: cblogin, program zastêpuj±cy login
+przy wdzwanianych po³±czeniach, cbmgetty, pseudo-getty, oraz cb, program
+steruj±cy.
 
 %prep
 %setup -q -n %{name}
-install %{SOURCE1} .
 %patch -p1
 
 %build
@@ -38,7 +36,7 @@ make CFLAGS="$RPM_OPT_FLAGS"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}{/man1,/man4}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,4}}
 	
 install cb/cb login/cblogin mgetty/cbmgetty $RPM_BUILD_ROOT%{_bindir}
 install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
