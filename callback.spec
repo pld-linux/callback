@@ -5,6 +5,7 @@ Version:	4.24
 Release:	1
 License:	GPL
 Group:		Networking/Admin
+Group(de):	Netzwerkwesen/Administration
 Group(pl):	Sieciowe/Administracyjne
 Source0:	ftp://ftp.icce.rug.nl/pub/unix/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.icce.rug.nl/pub/unix/%{name}.FAQ
@@ -30,7 +31,7 @@ pseudo-getty, oraz cb, program steruj±cy.
 %patch -p1
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
