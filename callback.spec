@@ -47,6 +47,9 @@ install %{SOURCE1} .
 
 gzip -9nf %{name}.FAQ CHANGELOG $RPM_BUILD_ROOT%{_mandir}/man*/*
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.gz %{name}.FAQ.gz examples
