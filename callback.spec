@@ -31,7 +31,7 @@ pseudo-getty, oraz cb, program steruj±cy.
 
 %build
 LDFLAGS="-s"; export LDFLAGS
-make CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
