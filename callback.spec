@@ -14,16 +14,16 @@ Requires:	mgetty
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package allows callback for Linux systems which are equipped with a
-modem. The package contains three programs: cblogin, a login-program for
-dial-in connections, cbmgetty, a pseudo-getty and cb, a callback control
-unit.
+This package allows callback for Linux systems which are equipped with
+a modem. The package contains three programs: cblogin, a login-program
+for dial-in connections, cbmgetty, a pseudo-getty and cb, a callback
+control unit.
 
 %description -l pl
-Ten pakiet udostêpnia us³ugê callback na systemach z Linuxem wyposa¿onych w
-modem. Pakiet zawiera trzy programy: cblogin, program zastêpuj±cy login
-przy wdzwanianych po³±czeniach, cbmgetty, pseudo-getty, oraz cb, program
-steruj±cy.
+Ten pakiet udostêpnia us³ugê callback na systemach z Linuxem
+wyposa¿onych w modem. Pakiet zawiera trzy programy: cblogin, program
+zastêpuj±cy login przy wdzwanianych po³±czeniach, cbmgetty,
+pseudo-getty, oraz cb, program steruj±cy.
 
 %prep
 %setup -q -n %{name}
