@@ -31,7 +31,8 @@ pseudo-getty, oraz cb, program steruj±cy.
 %patch -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \ 
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
