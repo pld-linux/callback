@@ -1,0 +1,202 @@
+diff -Naur callback/Makefile callback3/Makefile
+--- callback/Makefile	Thu Jan  1 01:00:00 1970
++++ callback3/Makefile	Tue Nov 23 14:39:05 1999
+@@ -0,0 +1,25 @@
++MAKE	=make
++CC	=gcc
++CFLAGS	=-O2
++LDFLAGS	=-s
++
++all: cblib cbcb cbmgetty cblogin
++
++cblib:
++	$(MAKE) -C lib
++
++cbcb:
++	$(MAKE) -C cb
++
++cbmgetty:
++	$(MAKE) -C mgetty
++	
++cblogin:
++	$(MAKE) -C login
++
++clean:
++	$(MAKE) -C lib clean
++	$(MAKE) -C cb clean
++	$(MAKE) -C mgetty clean
++	$(MAKE) -C login clean
++
+diff -Naur callback/cb/Makefile callback3/cb/Makefile
+--- callback/cb/Makefile	Thu Jan  1 01:00:00 1970
++++ callback3/cb/Makefile	Tue Nov 23 14:39:05 1999
+@@ -0,0 +1,15 @@
++MAKE	=make
++CC	=gcc
++CFLAGS	=-O2
++LDFLAGS	=-s
++
++CBSOU	=cb.c enable.c list.c needcbmode.c task.c \
++         cbdata.c error.c logging.c preusage.c usage.c \
++         disable.c force.c maybeforce.c state.c usettyline.c
++
++cb:	$(CBSOU)
++		$(CC) $(CFLAGS) -c $(CBSOU)
++		$(CC) $(LDFLAGS) -o cb *.o -lrss -L. -L../lib
++
++clean:
++	rm -f *.o cb
+diff -Naur callback/lib/Makefile callback3/lib/Makefile
+--- callback/lib/Makefile	Thu Jan  1 01:00:00 1970
++++ callback3/lib/Makefile	Tue Nov 23 14:39:05 1999
+@@ -0,0 +1,112 @@
++MAKE	=make
++CC	=gcc
++CFLAGS	=-O2
++LDFLAGS	=-s
++
++DBASE	=activefiles.c enablestate.c makeactive.c states.c \
++	 ageof.c fgetline.c makeconfigfile.c tellstate.c \
++	 appendline.c getfile.c makefilenames.c toactivefile.c \
++	 assignfilenames.c getmaxage.c modemfile.c unlinkfiles.c \
++	 copyfile.c getstate.c nologin.c updatecbstate.c \
++	 cpfile.c linename.c setcallback.c writestate.c \
++	 dbasedata.c load.c setmaxage.c xfopen.c
++
++PARSER	=lexer.c parser.c parsesetupfile.c yysemantic.c \
++	 parseerror.c parserdata.c yyerror.c
++
++START	=getprogname.c setprogname.c startup.c startupdata.c
++
++TTYL	=activatettyline.c getdefaulttty.c lookuptty.c \
++	 activatettylines.c gettyline.c resetactivetty.c \
++	 getactivetty.c lineindex.c settyline.c ttylinedata.c
++
++DGR	=addgroup.c dgroupindex.c lookgroup.c \
++	 dgroupdata.c dgroupname.c newgroup.c
++
++DES	=askextranumber.c getdgroupindex.c getphone.c setmode.c \
++	 definedest.c getdnameindex.c listdestinations.c setphone.c \
++	 destdata.c getfilename.c setdname.c setphonenr.c \
++	 getbuf.c getlinetouse.c setfile.c tagdnames.c \
++	 getdestmode.c getndestinations.c setline.c
++
++USR	=combine.c lastuser.c lastusergroupindex.c userdata.c username.c \
++	 defineuser.c lastusergroup.c lookuser.c usergroup.c userngroups.c
++
++DNAME	=checkdname.c dnamedata.c dnameindex.c getdname.c initdnames.c \
++	 lookdname.c
++
++PROC	=availlinelist.c killinit.c modemrespawn.c switchtty.c \
++	 getanothertty.c linestate.c processdata.c
++
++MEM	=memdata.c xmalloc.c xrealloc.c xstrdup.c
++
++LOG	=getdiallogfilename.c log.c setdiallogfilename.c setpanicfilename.c \
++	 getlogfilename.c logdata.c setlog.c \
++	 getlogtypestring.c logdefaults.c setlogdefaults.c \
++	 getpanicfilename.c logv.c setlogfilename.c \
++
++CONF	=checkconfig.c getmode.c hidedestinations.c setmodembase.c \
++	 configdata.c getmodembase.c setbase.c setntries.c \
++	 getbase.c getntries.c setcall.c showdestinations.c \
++	 getcall.c givedestinations.c setemailaddress.c showdirect.c \
++	 getemailaddress.c givedirect.c setloginprogram.c showextra.c \
++	 getlogin.c giveextra.c setmgettypath.c showphonenumbers.c \
++	 getmgettypath.c givephonenumbers.c setmode.c
++
++librss.a: cbdbase cbparser cbstartup cbttyline cbdgroup cbdest cbuser \
++	  cbdname cbprocess cbconfig cbmem cblog cbversion
++	  ar rs librss.a *.o */*.o
++
++cbversion:
++	$(CC) $(CFLAGS) -c version.c
++
++cbconfig:
++	( cd config ; \
++	$(CC) $(CFLAGS) -c $(CONF) )
++
++cbdbase:
++	( cd dbase ; \
++	$(CC) $(CFLAGS) -c $(DBASE) )
++
++cbparser:
++	( cd parser ; \
++	$(CC) $(CFLAGS) -c $(PARSER) )
++
++cbstartup:
++	( cd startup ; \
++	$(CC) $(CFLAGS) -c $(START) )
++
++cbttyline:
++	( cd ttyline ; \
++	$(CC) $(CFLAGS) -c $(TTYL) )
++
++cbdgroup:
++	( cd dgroup ; \
++	$(CC) $(CFLAGS) -c $(DGR) )
++
++cbdest:
++	( cd dest ; \
++	$(CC) $(CFLAGS) -c $(DES) )
++
++cbuser:
++	( cd user ; \
++	$(CC) $(CFLAGS) -c $(USR) )
++	
++cbdname:
++	( cd dname ; \
++	$(CC) $(CFLAGS) -c $(DNAME) )
++
++cbprocess:
++	( cd process ; \
++	$(CC) $(CFLAGS) -c $(PROC) )
++
++cblog:
++	( cd log ; \
++	$(CC) $(CFLAGS) -c $(LOG) )
++
++cbmem:
++	( cd mem ; \
++	$(CC) $(CFLAGS) -c $(MEM) )
++	
++clean:
++	rm -f *.o */*.o librss.a
+diff -Naur callback/login/Makefile callback3/login/Makefile
+--- callback/login/Makefile	Thu Jan  1 01:00:00 1970
++++ callback3/login/Makefile	Tue Nov 23 14:39:05 1999
+@@ -0,0 +1,16 @@
++MAKE	=make
++CC	=gcc
++CFLAGS	=-O2
++LDFLAGS	=-s
++
++LOGSOU	=banner.c   determinetty.c   execlogin.c  login.c  firstlogin.c	\
++	 validate.c getdestination.c cblogin.c    error.c
++
++cblogin:
++	$(CC) $(CFLAGS) -c $(LOGSOU)
++	$(CC) $(LDFLAGS) -o cblogin *.o -lrss -L. -L../lib
++
++clean:
++	rm -f *.o cblogin
++
++
+diff -Naur callback/mgetty/Makefile callback3/mgetty/Makefile
+--- callback/mgetty/Makefile	Thu Jan  1 01:00:00 1970
++++ callback3/mgetty/Makefile	Tue Nov 23 14:39:05 1999
+@@ -0,0 +1,14 @@
++MAKE	=make
++CC	=gcc
++CFLAGS	=-O2
++LDFLAGS	=-s
++
++MGETSOU	=aux/error.c cbmgetty.c
++
++cbmgetty:
++	$(CC) $(CFLAGS) -c cbmgetty.c
++	( cd aux; $(CC) $(CFLAGS) -c error.c )
++	$(CC) $(LFLAGS) -o cbmgetty *.o aux/*.o -lrss -L. -L../lib
++
++clean:
++	rm -f *.o aux/*.o cbmgetty
