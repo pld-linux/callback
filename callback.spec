@@ -41,13 +41,11 @@ install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install man/*.4 $RPM_BUILD_ROOT%{_mandir}/man4
 install %{SOURCE1} .
 
-gzip -9nf %{name}.FAQ CHANGELOG
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG.gz %{name}.FAQ.gz examples
+%doc %{name}.FAQ CHANGELOG examples
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
