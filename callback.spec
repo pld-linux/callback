@@ -30,7 +30,6 @@ pseudo-getty, oraz cb, program steruj±cy.
 %patch -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
@@ -43,7 +42,7 @@ install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install man/*.4 $RPM_BUILD_ROOT%{_mandir}/man4
 install %{SOURCE1} .
 
-gzip -9nf %{name}.FAQ CHANGELOG $RPM_BUILD_ROOT%{_mandir}/man*/*
+gzip -9nf %{name}.FAQ CHANGELOG
 
 %clean
 rm -rf $RPM_BUILD_ROOT
