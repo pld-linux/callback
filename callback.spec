@@ -2,7 +2,7 @@ Summary:	Callback package for Linux
 Summary(pl):	Pakiet Callback dla Linuksa
 Name:		callback
 Version:	4.24
-Release:	4
+Release:	5
 License:	GPL
 Group:		Networking/Admin
 Source0:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}-%{version}.tar.gz
