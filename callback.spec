@@ -6,7 +6,9 @@ Release:	2
 License:	GPL
 Group:		Networking/Admin
 Source0:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}-%{version}.tar.gz
+# Source0-md5:	70325a686580ca9140b81659c04ac11b
 Source1:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}.FAQ
+# Source1-md5:	1f63f203e28f4f626ca5718b3e632eb0
 Patch0:		%{name}-Makefiles.patch
 URL:		http://www.icce.rug.nl/docs/programs/callback/callback.html
 Requires:	mgetty
