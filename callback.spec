@@ -5,8 +5,6 @@ Version:	4.24
 Release:	2
 License:	GPL
 Group:		Networking/Admin
-Group(de):	Netzwerkwesen/Administration
-Group(pl):	Sieciowe/Administracyjne
 Source0:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.rug.nl/contrib/frank/software/linux/callback/%{name}.FAQ
 Patch0:		%{name}-Makefiles.patch
