@@ -11,7 +11,7 @@ Source1:	ftp://ftp.icce.rug.nl/pub/unix/%{name}.FAQ
 Patch0:		%{name}-Makefiles.patch
 URL:		http://www.icce.rug.nl/docs/programs/callback/callback.html
 Requires:	mgetty
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package allows callback for Linux systems which are equipped with a
