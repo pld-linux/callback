@@ -1,0 +1,11 @@
+--- callback/lib/dbase/makeactive.c.orig	Sat Nov  8 15:48:03 1997
++++ callback/lib/dbase/makeactive.c	Fri Nov 21 11:22:40 2003
+@@ -58,7 +58,7 @@
+                 "calling %s at %s (%s V %s)\n"
+             , ctime (&ltime)
+             , name
+-            , get_dname(dest)
++            , get_dname(get_dnameindex(dest))
+             , getprogname()
+             , version
+         );
