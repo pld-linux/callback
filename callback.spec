@@ -21,7 +21,7 @@ for dial-in connections, cbmgetty, a pseudo-getty and cb, a callback
 control unit.
 
 %description -l pl
-Ten pakiet udostêpnia us³ugê callback na systemach z Linuxem
+Ten pakiet udostêpnia us³ugê callback na systemach z Linuksem
 wyposa¿onych w modem. Pakiet zawiera trzy programy: cblogin, program
 zastêpuj±cy login przy wdzwanianych po³±czeniach, cbmgetty,
 pseudo-getty, oraz cb, program steruj±cy.
