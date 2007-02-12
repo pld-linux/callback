@@ -1,5 +1,5 @@
 Summary:	Callback package for Linux
-Summary(pl):	Pakiet Callback dla Linuksa
+Summary(pl.UTF-8):   Pakiet Callback dla Linuksa
 Name:		callback
 Version:	4.24
 Release:	5
@@ -20,11 +20,11 @@ a modem. The package contains three programs: cblogin, a login-program
 for dial-in connections, cbmgetty, a pseudo-getty and cb, a callback
 control unit.
 
-%description -l pl
-Ten pakiet udostêpnia us³ugê callback na systemach z Linuksem
-wyposa¿onych w modem. Pakiet zawiera trzy programy: cblogin, program
-zastêpuj±cy login przy wdzwanianych po³±czeniach, cbmgetty,
-pseudo-getty, oraz cb, program steruj±cy.
+%description -l pl.UTF-8
+Ten pakiet udostÄ™pnia usÅ‚ugÄ™ callback na systemach z Linuksem
+wyposaÅ¼onych w modem. Pakiet zawiera trzy programy: cblogin, program
+zastÄ™pujÄ…cy login przy wdzwanianych poÅ‚Ä…czeniach, cbmgetty,
+pseudo-getty, oraz cb, program sterujÄ…cy.
 
 %prep
 %setup -q -n %{name}
