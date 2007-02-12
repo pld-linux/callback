@@ -1,5 +1,5 @@
 Summary:	Callback package for Linux
-Summary(pl.UTF-8):   Pakiet Callback dla Linuksa
+Summary(pl.UTF-8):	Pakiet Callback dla Linuksa
 Name:		callback
 Version:	4.24
 Release:	5
